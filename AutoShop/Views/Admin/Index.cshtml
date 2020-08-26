@@ -1,0 +1,22 @@
+﻿@{
+    string strTitle = "Панель администратора";
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <h2>@strTitle</h2>
+
+    <div class="div-box">
+        <h3>Показать список</h3>
+        @Html.ActionLink("Все детали", "Index", "DetailItems")
+        @Html.ActionLink("Все бренды", "Index", "BrandItems")
+        @Html.ActionLink("Все типы деталей", "Index", "TypeItems")
+        @Html.ActionLink("Все автомобили", "Index", "CarItems")
+    </div>
+
+    <div class="div-box">
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+            <p class="text-center view-button animate-box"><input class="btn btn-primary btn-outline btn-lg" type="submit" value="Выйти" /></p>
+        </form>
+    </div>
+</div>

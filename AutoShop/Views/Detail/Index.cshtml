@@ -1,0 +1,62 @@
+﻿@model AutoShop.Models.DetailListViewModel
+@using AutoShop.Service
+
+<form method="get">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3 animate-box text-center">
+                <label class="control-label">@(Config.VendorCode): </label>
+                @Html.Editor("vendorCode", new { htmlAttributes = new { @class = "form-control" } })
+                <br />
+            </div>
+
+            <div class="col-md-3 animate-box text-center">
+                <label class="control-label">@(Config.Type): </label>
+                @Html.DropDownList("type", Model.TypeItems as SelectList,
+                            htmlAttributes: new { @class = "form-control" })
+                <br />
+            </div>
+
+            <div class="col-md-3 animate-box text-center">
+                <label class="control-label">@(Config.Brand): </label>
+                @Html.DropDownList("brand", Model.BrandItems as SelectList,
+                            htmlAttributes: new { @class = "form-control" })
+                <br />
+            </div>
+
+            <div class="col-md-3 animate-box text-center">
+                <label class="control-label">@(Config.Car): </label>
+                @Html.DropDownList("car", Model.CarItems as SelectList,
+                            htmlAttributes: new { @class = "form-control" })
+                <br />
+            </div>
+
+            <p class="text-center view-button">
+                <input type="submit" value="Фильтр" class="btn btn-default animate-box" />
+            </p>
+
+        </div>
+    </div>
+</form>
+
+<br />
+
+    <div id="fh5co-product-section">
+            <div class="container">
+                <div class="row">
+                    @foreach (var entity in Model.DetailItems)
+                    {
+                        <div class="col-md-4 prod text-center animate-box">
+                            <div class="product" style="background-image: url(../../images/details/@(entity.Id).jpeg);">
+                                <a class="view" asp-area="" asp-controller="Detail" asp-action="Index" asp-route-id="@entity.Id">
+                                    <i class="icon-plus"></i>
+                                </a>
+                            </div>
+                            <h3><a href="#">@entity.Title</a></h3>
+                            <span class="price">@entity.Price</span>
+                        </div>
+                    }
+                </div>
+            </div>
+    </div>

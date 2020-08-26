@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("MetatagsPartial")
+    @Html.Partial("CssPartial")
+</head>
+<body>
+    @Html.Partial("NavigationPartial")
+    <div id="fh5co-page">
+        @Html.Partial("HeaderPartial")
+
+        <div>
+            @RenderBody()
+        </div>
+
+        @Html.Partial("AnimateBoxPartial")
+        @Html.Partial("FooterPartial")
+    </div>
+    @Html.Partial("ScriptsPartial")
+</body>
+</html>
+

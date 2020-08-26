@@ -1,0 +1,25 @@
+﻿@model IQueryable<AutoShop.Domain.Entities.CarItem>
+@using AutoShop.Domain.Entities
+@using AutoShop.Service
+
+<div id="fh5co-product-section">
+    @if (Model.Any())
+    {
+        <div class="container">
+            <div class="row">
+                @foreach (CarItem entity in Model)
+                {
+                    <div class="col-md-6 prod text-center animate-box">
+                        <div class="product" style="background-image: url(../../images/cars/@(entity.Id).jpeg);">
+                            <a href="@Url.Action("Index","Detail", new { car = entity.Id })" class="view">
+                                <span>Посмотреть @Config.Details на @entity.Title</span>
+                            </a>
+                        </div>
+                        <h3><a href="#">@entity.Title</a></h3>
+                        <span class="price">@entity.Subtitle</span>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
